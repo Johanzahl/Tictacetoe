@@ -38,7 +38,7 @@ def IsWinner(b,l):
 def playerMove():
     run = True
     while run:
-        move = input("please select a position to enter the X between 1 to 9\n")
+        move = input("Vänligen välj en position för att placera X mellan 1 och 9\n")
         try:
             move = int(move)
             if move > 0 and move < 10:
@@ -46,12 +46,12 @@ def playerMove():
                     run = False
                     insertLetter('X' , move)
                 else:
-                    print('Sorry, this space is occupied')
+                    print('Tyvärr, denna plats är upptagen')
             else:
-                print('please type a number between 1 and 9')
+                print('Vänligen skriv ett nummer mellan 1 och 9')
 
         except:
-            print('Please type a number')
+            print('Vänligen skriv ett nummer')
 
 def computerMove():
     possibleMoves = [x for x , letter in enumerate(board) if letter == ' ' and x != 0  ]
@@ -94,7 +94,7 @@ def selectRandom(li):
     return li[r]
 
 def main():
-    print("Welcome to the game!")
+    print("Välkommen till spelet!")
     printBoard(board)
 
     while not(isBoardFull(board)):
@@ -102,7 +102,7 @@ def main():
             playerMove()
             printBoard(board)
         else:
-            print("sorry you loose!")
+            print("Tyvärr, du förlorar!")
             break
 
         if not(IsWinner(board , 'X')):
@@ -111,10 +111,10 @@ def main():
                 print(" ")
             else:
                 insertLetter('O' , move)
-                print('computer placed an o on position' , move , ':')
+                print('Datorn placerade en O på position', move, ':')
                 printBoard(board)
         else:
-            print("you win!")
+            print("Grattis, du vinner!")
             break
 
 
@@ -124,7 +124,7 @@ def main():
         print("Tie game")
 
 while True:
-    x = input("Do you want to play? Press y for yes or n for no (y/n)\n")
+    x = input("Vill du spela? Tryck på y för ja eller n för nej (y/n)\n")
     if x.lower() == 'y':
         board = [' ' for x in range(10)]
         print('--------------------')
